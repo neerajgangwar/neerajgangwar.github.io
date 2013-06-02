@@ -84,6 +84,10 @@ body { margin: 0px; background: #F0F0F0;}
 	text-align: justify;
 }
 
+.currentpagelink {
+	color: #D3858F;
+}
+
 h4 {
 	margin-top: 10px;
 	margin-bottom: -10px;
