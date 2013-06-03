@@ -1,4 +1,7 @@
-body { margin: 0px; background: #F0F0F0;}
+body { 
+	margin: 0 0 0 0;
+ 	background: #F0F0F0;
+ }
 
 .header {
 	background: #424242;
@@ -104,6 +107,10 @@ p {
 	margin-top: 15px;
 	margin-bottom: 20px;
 	font-size: 0.9em;
+}
+
+h1 {
+	margin-top: 0px;
 }
 
 
