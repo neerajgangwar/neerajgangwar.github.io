@@ -22,14 +22,14 @@ body {
 }
 
 .details .title {
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 4em;
 	color: #1C1C1C;
 	font-weight: 900;
 }
 
 .details .aboutme {
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.5em;
 	color: #1C1C1C;
 	font-weight: 500;
@@ -39,7 +39,7 @@ body {
 }
 
 .tagline {
-	font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.35em;
 	color: #D3858F;
 	float: right;
@@ -48,7 +48,7 @@ body {
 }
 
 .navbar {
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	padding: .25em 0em .25em 0em;
 	position: absolute;
 	float: right;
@@ -63,7 +63,7 @@ body {
 
 .interests {
 	list-style: upper-roman;
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.5em;
 	color: #1C1C1C;
 	font-weight: 500;
@@ -73,7 +73,7 @@ body {
 
 .projects {
 	list-style: upper-roman;
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.5em;
 	color: #1C1C1C;
 	font-weight: 500;
@@ -99,7 +99,7 @@ body {
 }
 
 .social li a.linkedin {
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.5em;
 	padding-left: 70px;
 	line-height: 60px;
@@ -114,7 +114,7 @@ a.linkedin:hover {
 }
 
 .social li a.facebook {
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.5em;
 	padding-left: 70px;
 	line-height: 60px;
@@ -130,7 +130,7 @@ a.facebook:hover {
 
 
 .social li a.twitter {
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.5em;
 	padding-left: 70px;
 	line-height: 60px;
@@ -145,7 +145,7 @@ a.twitter:hover {
 }
 
 .social li a.github {
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.5em;
 	padding-left: 70px;
 	line-height: 60px;
@@ -160,7 +160,7 @@ a.github:hover {
 }
 
 .social li a.email {
-	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.5em;
 	padding-left: 70px;
 	line-height: 60px;
@@ -171,7 +171,7 @@ a.github:hover {
 
 a.email:hover {
 	text-decoration: none;
-	color: #339933;
+	color: #DC381F;
 }
 
 /*.social li a:visited {
