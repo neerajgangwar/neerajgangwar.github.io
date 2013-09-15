@@ -67,7 +67,6 @@ body {
 .navbar li.current-page {
 	background: #333333;
 	color: #FF9900;
-	font-weight: bold;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 }
