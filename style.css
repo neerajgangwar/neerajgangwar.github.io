@@ -1,45 +1,28 @@
 body { 
+	font-family: 'Ubuntu',"Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin: 0px 0px 0px 0px;
- 	background: #F0F0F0;
+ 	background: #FFFFFF;
+ 	color: #000000;
  }
 
 .header {
-	background: #424242;
+	background: #333333;
 	width: 100%;
+	position: fixed;
+	top: 0;
+	padding: 15px 0px 15px 0px;
+	z-index: 9;
 }
 
 
 #name {
-	font-family: Georgia, Times, "Times New Roman", serif;
-	font-size: 1em;
+	font-size: 2em;
 	margin-left: 150px;
+	font-weight: bold;
 }
 
-.details {
-	float: left;
-	margin-left: 150px;
-	margin-top: 60px;
-}
-
-.details .title {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 4em;
-	color: #1C1C1C;
-	font-weight: 900;
-}
-
-.details .aboutme {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 1.5em;
-	color: #1C1C1C;
-	font-weight: 500;
-	width: 50%;
-	text-align: justify;
-	margin-top: 15px;
-}
 
 .tagline {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
 	font-size: 1.35em;
 	color: #D3858F;
 	float: right;
@@ -47,158 +30,148 @@ body {
 	margin-top: 5px;
 }
 
+
+.pic {
+	float: right;
+	position: absolute;
+	top: 115px;
+	right: 150px;
+	height: 175px;
+	padding: 4px;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+
 .navbar {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	padding: .25em 0em .25em 0em;
 	position: absolute;
 	float: right;
-	top: 150px;
+	top: 285px;
 	right: 150px;
-	font-size: 2em;
+	font-size: 1.7em;
 	list-style: none;
 	color: #1C1C1C;
 	text-align: right;
   	display: block;
 }
 
-.interests {
-	list-style: upper-roman;
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 1.5em;
-	color: #1C1C1C;
-	font-weight: 500;
-	margin-top: 15px;
-	width: 70%;
+.navbar li {
+	padding: 3px 10px 3px 80px;
 }
 
-.projects {
-	list-style: upper-roman;
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 1.5em;
+.navbar li.current-page {
+	background: #333333;
+	color: #FF9900;
+	font-weight: bold;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.aboutme {
+	float: left;
+	margin-left: 150px;
+	margin-top: 100px;
+	font-size: 1.3em;
 	color: #1C1C1C;
 	font-weight: 500;
-	margin-top: 15px;
-	width: 60%;
+	width: 50%;
 	text-align: justify;
 }
 
-.currentpagelink {
-	color: #D3858F;
+.aboutme a:link {
+	color: #FF9900;
+	font-weight: 700;
 }
 
-.social {
-	margin-top: 20px;
-	list-style: none;
-	margin-left: -40px;
-	margin-bottom: 30px;
-}
-
-.social a:link {
+.aboutme a:visited {
 	text-decoration: none;
+	color: #FF9900;
+}
+
+.aboutme a:hover {
 	color: #D8D8D8;
 }
 
-.social li a.linkedin {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 1.5em;
-	padding-left: 70px;
-	line-height: 60px;
-	height: 70px;
-	display: block;
-	background: url('icons/linkedin.png') no-repeat;
+.interests {
+	float: left;
+	margin-left: 150px;
+	margin-top: 100px;
+	color: #1C1C1C;
+	font-size: 1.3em;
+	width: 50%;
+	text-align: justify;
 }
 
-a.linkedin:hover {
-	text-decoration: none;
-	color: #008080;
+.interests li {
+	list-style-type: square;
 }
 
-.social li a.facebook {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 1.5em;
-	padding-left: 70px;
-	line-height: 60px;
-	height: 70px;
-	display: block;
-	background: url('icons/facebook.png') no-repeat;	
+.title {
+	font-size: 1.3em;
+	font-style: italic;
+	font-weight: bold;
+	color: #FF9900;
 }
 
-a.facebook:hover { 
-	text-decoration: none;
-	color: #333399;
+.projects {
+	float: left;
+	margin-left: 150px;
+	margin-top: 100px;
+	font-size: 1.3em;
+	width: 50%;
+	text-align: justify;
 }
 
-
-.social li a.twitter {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 1.5em;
-	padding-left: 70px;
-	line-height: 60px;
-	height: 70px;
-	display: block;
-	background: url('icons/twitter.png') no-repeat;
-}
-
-a.twitter:hover {
-	text-decoration: none;
-	color: #3399FF;
-}
-
-.social li a.github {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 1.5em;
-	padding-left: 70px;
-	line-height: 60px;
-	height: 70px;
-	display: block;
-	background: url('icons/github.png') no-repeat;
-}
-
-a.github:hover {
-	text-decoration: none;
-	color: #424242;
-}
-
-.social li a.email {
-	font-family: Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif;
-	font-size: 1.5em;
-	padding-left: 70px;
-	line-height: 60px;
-	height: 70px;
-	display: block;
-	background: url('icons/email.png') no-repeat;
-}
-
-a.email:hover {
-	text-decoration: none;
-	color: #DC381F;
-}
-
-/*.social li a:visited {
-	text-decoration: none;
-}*/
-
-
-h4 {
+.projects h4 {
+	font-weight: normal;
+	font-style: italic;
 	margin-top: 10px;
 	margin-bottom: -10px;
+	/*color: #FF9900;*/
 }
 
-h5 {
-	margin-top: 10px;
-	margin-bottom: -10px;
-	color: #D3858F;	
-	font-weight: 500;
+.projects ul {
+	list-style-type: decimal;
+	/*color: #FF9900;*/
 }
+
+.projects a:link {
+	color: #FF9900;
+}
+
+.projects a:visited {
+	text-decoration: none;
+	color: #FF9900;
+}
+
+.projects a:hover {
+	color: #D8D8D8;
+}
+
+.contact {
+	float: right;
+	position: absolute;
+	right: 150px;
+	top: 430px;
+	list-style: none;
+}
+
+.contact li {
+	padding-top: 5px;
+	text-align: center;
+}
+
+
 
 p {
 	margin-top: 15px;
 	margin-bottom: 20px;
 	font-size: 0.9em;
-}
-
-h1 {
-	margin-top: 0px;
 }
 
 
