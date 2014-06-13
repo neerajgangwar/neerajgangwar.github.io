@@ -97,6 +97,10 @@ body {
 	margin-top: 20px;
 }
 
+.main h3 {
+	padding: 0px 0px 5px 0px;
+}
+
 a:link {text-decoration: none; color: inherit; font-weight: 700;}
 
 a:visited {text-decoration: none; color: inherit;}
