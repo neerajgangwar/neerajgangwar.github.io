@@ -29,7 +29,7 @@ body {
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	background: url(../img/profile.jpg) no-repeat;
-	background-size: 100;
+	background-size: cover;
 	width: 100px;
 	height: 100px;
 	margin-bottom: 20px;
