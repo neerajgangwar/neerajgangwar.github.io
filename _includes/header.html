@@ -10,7 +10,7 @@
 
     <nav class="navbar sliding-panel-content">
       <ul>
-        <li><a href="http://about.me/neeraj.gangwar" target="_blank">about</a></li>
+        <li><a href="{{ site.author.aboutme }}" target="_blank">about</a></li>
         {% for item in site.navbar %}
           <li><a href="{{ '/' | prepend: site.baseurl }}{{ item.slug }}" title="{{ item.title }}">{{ item.title }}</a></li>
         {% endfor %}
