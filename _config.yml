@@ -1,0 +1,41 @@
+# Build settings
+permalink   : /blog/:year/:title/
+markdown    : kramdown
+highlighter : pygments
+gems: [jekyll-paginate]
+
+paginate: 3
+paginate_path: "/blog/page/:num/"
+comments: true
+
+destination: _site
+sass:
+  sass_dir: _scss
+  style: compressed # expanded
+
+# SEO settings
+title: Neeraj Gangwar
+description: "My Homepage"
+keywords: "neeraj, blog"
+url: ""
+baseurl: ""
+
+repo: http://github.com/neerajgangwar
+
+# Author settings
+author:
+  name     : Neeraj Gangwar
+  job      : Software Developer
+  bio      : "Software Developer | Machine Learning | Commonfloor | IIT Roorkee"
+  thumb    : /images/author.jpg
+  email    : me@neerajgangwar.in
+  url      : http://neerajgangwar.in
+  github   : http://github.com/neerajgangwar
+  twitter  : http://twitter.com/neeraj_gangwar
+  facebook : http://facebook.com/gangwar.neeraj
+  linkedin : https://in.linkedin.com/in/gangwarneeraj
+
+# navbar pages
+navbar:
+  - slug: blog
+    title: Blog
