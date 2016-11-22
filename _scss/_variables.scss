@@ -31,7 +31,7 @@ $medium-gray-color: #9a9a9a;
 $light-gray-color: #dedede;
 
 // Font Colors
-$base-font-color: lighten($dark-gray-color, 25%);
+$base-font-color: $dark-gray-color;
 $action-color: $primary-color;
 
 // Border

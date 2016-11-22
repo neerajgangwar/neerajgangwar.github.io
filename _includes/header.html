@@ -18,6 +18,14 @@
       </ul>
     </nav>
   </div>
+
+  <div class="page-title">
+    {{ page.title }}
+  </div>
+
+  <div class="page-meta">
+    {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+  </div>
 </header>
 
 <div class="sliding-panel-fade-screen"></div>
