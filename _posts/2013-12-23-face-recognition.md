@@ -3,6 +3,7 @@ layout: post
 title: Face Recognition
 date: 2013-12-23 21:36:00
 author: Neeraj Gangwar
+comments: true
 tags:
 - pattern classification
 - face recognition

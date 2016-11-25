@@ -13,7 +13,7 @@ sass:
   sass_dir: _scss
   style: compressed # expanded
 
-# SEO settings
+
 title: Neeraj Gangwar
 description: "My Homepage"
 keywords: "neeraj, blog"
@@ -21,12 +21,14 @@ url: ""
 baseurl: ""
 
 repo: http://github.com/neerajgangwar
+disqus_shortname: "neerajgangwar"
+disqus_site_shortname: "neerajgangwar"
 
 # Author settings
 author:
   name     : Neeraj Gangwar
   job      : Software Developer
-  bio      : "Software Developer | Machine Learning | Commonfloor | IIT Roorkee"
+  bio      : "Software Developement | Machine Learning | Commonfloor | IIT Roorkee"
   thumb    : /images/author.jpg
   email    : me@neerajgangwar.in
   url      : http://neerajgangwar.in

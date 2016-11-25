@@ -3,6 +3,7 @@ layout: post
 title: Learning Resources for Compressive Sensing
 date: 2013-12-02 22:32:00
 author: Neeraj Gangwar
+comments: true
 tags:
 - sparse signals
 - resources
