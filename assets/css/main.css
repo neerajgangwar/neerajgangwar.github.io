@@ -90,9 +90,9 @@ blockquote { background: var(--global-bg-color); border-left: 2px solid var(--gl
 
 .navbar-toggler.collapsed .bottom-bar { transform: rotate(0); }
 
-.news table td { font-size: 1rem; color: var(--global-text-color); }
+.news table td { font-size: 1rem; color: var(--global-text-color); vertical-align: middle; }
 
-.news table th { color: var(--global-text-color); }
+.news table th { color: var(--global-text-color); vertical-align: middle; }
 
 .social { text-align: center; margin-top: 2rem; }
 
