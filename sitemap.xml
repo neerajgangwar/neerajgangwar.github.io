@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>/news/announcement_1/</loc>
+<lastmod>2021-06-08T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/blog/2013/a-brief-introduction/</loc>
+<lastmod>2013-10-14T10:05:00+00:00</lastmod>
+</url>
+<url>
+<loc>/blog/2013/transform-coding-and-compressive-sensing/</loc>
+<lastmod>2013-12-02T07:19:00+00:00</lastmod>
+</url>
+<url>
+<loc>/blog/2013/learning-resources/</loc>
+<lastmod>2013-12-02T22:32:00+00:00</lastmod>
+</url>
+<url>
+<loc>/blog/2013/face-recognition/</loc>
+<lastmod>2013-12-23T21:36:00+00:00</lastmod>
+</url>
+<url>
+<loc>/blog/2016/dockerizing-scala-applications/</loc>
+<lastmod>2016-11-25T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>/</loc>
+</url>
+</urlset>
