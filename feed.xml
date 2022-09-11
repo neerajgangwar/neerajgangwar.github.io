@@ -1,413 +1,413 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://neerajgangwar.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://neerajgangwar.com/" rel="alternate" type="text/html" /><updated>2021-10-30T12:21:35+00:00</updated><id>https://neerajgangwar.com/feed.xml</id><title type="html">blank</title><subtitle>Homepage of Neeraj Gangwar. Based on [*folio](https://github.com/bogoli/-folio) design.
-</subtitle><entry><title type="html">Dockerizing Scala Applications</title><link href="https://neerajgangwar.com/blog/2016/dockerizing-scala-applications/" rel="alternate" type="text/html" title="Dockerizing Scala Applications" /><published>2016-11-25T00:00:00+00:00</published><updated>2016-11-25T00:00:00+00:00</updated><id>https://neerajgangwar.com/blog/2016/dockerizing-scala-applications</id><content type="html" xml:base="https://neerajgangwar.com/blog/2016/dockerizing-scala-applications/">&lt;p&gt;If you are in doubt about using Docker, Google Trends says enough about
-its popularity.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://neerajgangwar.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://neerajgangwar.com/" rel="alternate" type="text/html" /><updated>2022-09-11T15:54:40+00:00</updated><id>https://neerajgangwar.com/feed.xml</id><title type="html">blank</title><subtitle>Homepage of Neeraj Gangwar. Based on [*folio](https://github.com/bogoli/-folio) design.
+</subtitle><entry><title type="html">Dockerizing Scala Applications</title><link href="https://neerajgangwar.com/blog/2016/dockerizing-scala-applications/" rel="alternate" type="text/html" title="Dockerizing Scala Applications" /><published>2016-11-25T00:00:00+00:00</published><updated>2016-11-25T00:00:00+00:00</updated><id>https://neerajgangwar.com/blog/2016/dockerizing-scala-applications</id><content type="html" xml:base="https://neerajgangwar.com/blog/2016/dockerizing-scala-applications/"><![CDATA[<p>If you are in doubt about using Docker, Google Trends says enough about
+its popularity.</p>
 
-&lt;script type=&quot;text/javascript&quot; src=&quot;https://ssl.gstatic.com/trends_nrtr/815_RC05/embed_loader.js&quot;&gt;&lt;/script&gt;
+<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/815_RC05/embed_loader.js"></script>
 
-&lt;script type=&quot;text/javascript&quot;&gt;
-  trends.embed.renderExploreWidget(&quot;TIMESERIES&quot;, {
-      &quot;comparisonItem&quot;:[{&quot;keyword&quot;:&quot;/m/0wkcjgj&quot;,&quot;geo&quot;:&quot;&quot;,&quot;time&quot;:&quot;today 5-y&quot;}],
-      &quot;category&quot;:0,
-      &quot;property&quot;:&quot;&quot;
-    }, {&quot;exploreQuery&quot;:&quot;q=%2Fm%2F0wkcjgj&quot;,&quot;guestPath&quot;:&quot;https://www.google.co.in:443/trends/embed/&quot;});
-&lt;/script&gt;
+<script type="text/javascript">
+  trends.embed.renderExploreWidget("TIMESERIES", {
+      "comparisonItem":[{"keyword":"/m/0wkcjgj","geo":"","time":"today 5-y"}],
+      "category":0,
+      "property":""
+    }, {"exploreQuery":"q=%2Fm%2F0wkcjgj","guestPath":"https://www.google.co.in:443/trends/embed/"});
+</script>
 
-&lt;p&gt;&lt;br /&gt;
+<p><br />
 Until a few release ago, it was quite a hassle to run Docker. However it has
 become stable lately. I have been using Docker for 1.5 years and my experience
 has been quite amazing. I love how I can run a Docker image built on my
 laptop in production without any headache. Also, it’s very easy to distribute a
 runnable image or run someone else’s image on your machine. You need Docker
-insatlled on your system and you can just run the application.&lt;/p&gt;
+insatlled on your system and you can just run the application.</p>
 
-&lt;p&gt;In this post, we are going to create Docker image for a simple Scala application.&lt;/p&gt;
+<p>In this post, we are going to create Docker image for a simple Scala application.</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;What is Docker?&lt;/h4&gt;
-&lt;p&gt;Docker is a tool designed to run applications in an isolated environment using
+<p><br /></p>
+<h4>What is Docker?</h4>
+<p>Docker is a tool designed to run applications in an isolated environment using
 containers. Containerization is an OS level virtualization method to run
 multiple systems on a single kernel without launching an entire virtual
-machine. On Linux based operating systems, it is achieved using &lt;a href=&quot;https://en.wikipedia.org/wiki/LXC&quot;&gt;LXC (Linux
-Containers)&lt;/a&gt;. Docker uses built-in Linux
+machine. On Linux based operating systems, it is achieved using <a href="https://en.wikipedia.org/wiki/LXC">LXC (Linux
+Containers)</a>. Docker uses built-in Linux
 containment features like CGroups, Namespaces, UnionFS, chroot to run applications
-in the virtual environment.&lt;/p&gt;
+in the virtual environment.</p>
 
-&lt;p&gt;LXC is an API for Linux containment features. Initially, Docker was built on top
-of LXC. Starting with Docker 0.9, it has been replaced with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libcontainer&lt;/code&gt;.&lt;/p&gt;
+<p>LXC is an API for Linux containment features. Initially, Docker was built on top
+of LXC. Starting with Docker 0.9, it has been replaced with <code class="language-plaintext highlighter-rouge">libcontainer</code>.</p>
 
-&lt;p&gt;To learn more about Docker, &lt;a href=&quot;https://docs.docker.com/engine/understanding-docker/&quot;&gt;official documentation&lt;/a&gt;
-is a good place to start.&lt;/p&gt;
+<p>To learn more about Docker, <a href="https://docs.docker.com/engine/understanding-docker/">official documentation</a>
+is a good place to start.</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Docker with Scala Build&lt;/h4&gt;
-&lt;p&gt;To create Docker image for a Scala application, we’ll use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sbt-native-packager&lt;/code&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
+<p><br /></p>
+<h4>Docker with Scala Build</h4>
+<p>To create Docker image for a Scala application, we’ll use <code class="language-plaintext highlighter-rouge">sbt-native-packager</code>.</p>
+<blockquote>
   sbt-native-packager focuses on creating a Docker image which can “just run”
   the application built by SBT.
-&lt;/blockquote&gt;
+</blockquote>
 
-&lt;p&gt;To achieve this, a few entries have to added in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;settings&lt;/code&gt; of project definition.&lt;/p&gt;
+<p>To achieve this, a few entries have to added in <code class="language-plaintext highlighter-rouge">settings</code> of project definition.</p>
 
-&lt;p&gt;Let’s create Docker image for a simple service. Here is one that uses &lt;a href=&quot;http://doc.akka.io/docs/akka-http/current/scala.html&quot;&gt;Akka
-HTTP&lt;/a&gt;. I just picked the
-first example I saw in Akka HTTP documentation. This service listens on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;8080&lt;/code&gt;
-and displays a simple hello page for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/hello&lt;/code&gt; path. Full code is available on
-&lt;a href=&quot;https://github.com/neerajgangwar/dockerize-scala-app&quot;&gt;GitHub&lt;/a&gt;.
-&lt;script src=&quot;https://gist.github.com/neerajgangwar/8a3e9062e86aa6371e193a3ae6866bc4.js?file=ExampleService.scala&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+<p>Let’s create Docker image for a simple service. Here is one that uses <a href="http://doc.akka.io/docs/akka-http/current/scala.html">Akka
+HTTP</a>. I just picked the
+first example I saw in Akka HTTP documentation. This service listens on <code class="language-plaintext highlighter-rouge">8080</code>
+and displays a simple hello page for <code class="language-plaintext highlighter-rouge">/hello</code> path. Full code is available on
+<a href="https://github.com/neerajgangwar/dockerize-scala-app">GitHub</a>.
+<script src="https://gist.github.com/neerajgangwar/8a3e9062e86aa6371e193a3ae6866bc4.js?file=ExampleService.scala"></script></p>
 
-&lt;p&gt;To build Docker image for this service, project definition in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Build.scala&lt;/code&gt; looks
+<p>To build Docker image for this service, project definition in <code class="language-plaintext highlighter-rouge">Build.scala</code> looks
 like
-&lt;script src=&quot;https://gist.github.com/neerajgangwar/8a3e9062e86aa6371e193a3ae6866bc4.js?file=Build.scala&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+<script src="https://gist.github.com/neerajgangwar/8a3e9062e86aa6371e193a3ae6866bc4.js?file=Build.scala"></script></p>
 
-&lt;p&gt;L15 specifies the main class of the project.&lt;/p&gt;
+<p>L15 specifies the main class of the project.</p>
 
-&lt;p&gt;L16 specifies a list of TCP ports to expose from the Docker image. Your application
-must be listening on one of these ports.&lt;/p&gt;
+<p>L16 specifies a list of TCP ports to expose from the Docker image. Your application
+must be listening on one of these ports.</p>
 
-&lt;p&gt;L17 specifies the entry point for Docker. This command will be executed when
-Docker container is run.&lt;/p&gt;
+<p>L17 specifies the entry point for Docker. This command will be executed when
+Docker container is run.</p>
 
-&lt;p&gt;L18 specifies the repository to which the image should be pushed when &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker:publish&lt;/code&gt;
-is run.&lt;/p&gt;
+<p>L18 specifies the repository to which the image should be pushed when <code class="language-plaintext highlighter-rouge">docker:publish</code>
+is run.</p>
 
-&lt;p&gt;L19 specifies the base image to be used when building Docker image for this
-project.&lt;/p&gt;
+<p>L19 specifies the base image to be used when building Docker image for this
+project.</p>
 
-&lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker:publishLocal&lt;/code&gt; after compilation to publish the Docker image locally.&lt;/p&gt;
+<p>Run <code class="language-plaintext highlighter-rouge">docker:publishLocal</code> after compilation to publish the Docker image locally.</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Docker with Play Application&lt;/h4&gt;
-&lt;p&gt;With Play framework, project definitions are written in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build.sbt&lt;/code&gt; by default.
-Here, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; project definition looks like
-&lt;script src=&quot;https://gist.github.com/neerajgangwar/8a3e9062e86aa6371e193a3ae6866bc4.js?file=build.sbt&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+<p><br /></p>
+<h4>Docker with Play Application</h4>
+<p>With Play framework, project definitions are written in <code class="language-plaintext highlighter-rouge">build.sbt</code> by default.
+Here, <code class="language-plaintext highlighter-rouge">root</code> or <code class="language-plaintext highlighter-rouge">main</code> project definition looks like
+<script src="https://gist.github.com/neerajgangwar/8a3e9062e86aa6371e193a3ae6866bc4.js?file=build.sbt"></script></p>
 
-&lt;p&gt;L15 prevents Docker from creating images for the subprojects separately.&lt;/p&gt;
+<p>L15 prevents Docker from creating images for the subprojects separately.</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Build your own Baseimage&lt;/h4&gt;
-&lt;p&gt;I personally prefer &lt;a href=&quot;http://phusion.github.io/baseimage-docker/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;phusion/baseimage&lt;/code&gt;&lt;/a&gt;
+<p><br /></p>
+<h4>Build your own Baseimage</h4>
+<p>I personally prefer <a href="http://phusion.github.io/baseimage-docker/"><code class="language-plaintext highlighter-rouge">phusion/baseimage</code></a>
 which is a minimal Ubuntu baseimage. In a lot of cases, it so happens that you need some
 packages to run your applications. Rather than adding the code to install these
 packages in all build files separately, it’s easier to build an image containing all the
-packages and use it as baseimage for your projects.&lt;/p&gt;
+packages and use it as baseimage for your projects.</p>
 
-&lt;p&gt;For example, if you need Java installed, you can create a Dockerfile with following
+<p>For example, if you need Java installed, you can create a Dockerfile with following
 code and build your own baseimage.
-&lt;script src=&quot;https://gist.github.com/neerajgangwar/8a3e9062e86aa6371e193a3ae6866bc4.js?file=Dockerfile&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+<script src="https://gist.github.com/neerajgangwar/8a3e9062e86aa6371e193a3ae6866bc4.js?file=Dockerfile"></script></p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Resources&lt;/h4&gt;
-&lt;ol&gt;
-  &lt;li&gt;Example Code: &lt;a href=&quot;https://github.com/neerajgangwar/dockerize-scala-app&quot;&gt;
+<p><br /></p>
+<h4>Resources</h4>
+<ol>
+  <li>Example Code: <a href="https://github.com/neerajgangwar/dockerize-scala-app">
     https://github.com/neerajgangwar/dockerize-scala-app
-  &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Official Docs: &lt;a href=&quot;https://docs.docker.com&quot;&gt;https://docs.docker.com&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;sbt-native-packager: &lt;a href=&quot;http://www.scala-sbt.org/sbt-native-packager/formats/docker.html&quot;&gt;
+  </a></li>
+  <li>Official Docs: <a href="https://docs.docker.com">https://docs.docker.com</a></li>
+  <li>sbt-native-packager: <a href="http://www.scala-sbt.org/sbt-native-packager/formats/docker.html">
     http://www.scala-sbt.org/sbt-native-packager/formats/docker.html
-    &lt;/a&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Neeraj Gangwar</name></author><category term="docker" /><category term="scala" /><category term="dockerize" /><category term="play" /><category term="scala application" /><summary type="html">If you are in doubt about using Docker, Google Trends says enough about its popularity.</summary></entry><entry><title type="html">Face Recognition</title><link href="https://neerajgangwar.com/blog/2013/face-recognition/" rel="alternate" type="text/html" title="Face Recognition" /><published>2013-12-23T21:36:00+00:00</published><updated>2013-12-23T21:36:00+00:00</updated><id>https://neerajgangwar.com/blog/2013/face-recognition</id><content type="html" xml:base="https://neerajgangwar.com/blog/2013/face-recognition/">&lt;p&gt;
+    </a>
+  </li>
+</ol>]]></content><author><name>Neeraj Gangwar</name></author><category term="docker" /><category term="scala" /><category term="dockerize" /><category term="play" /><category term="scala application" /><summary type="html"><![CDATA[If you are in doubt about using Docker, Google Trends says enough about its popularity.]]></summary></entry><entry><title type="html">Face Recognition</title><link href="https://neerajgangwar.com/blog/2013/face-recognition/" rel="alternate" type="text/html" title="Face Recognition" /><published>2013-12-23T21:36:00+00:00</published><updated>2013-12-23T21:36:00+00:00</updated><id>https://neerajgangwar.com/blog/2013/face-recognition</id><content type="html" xml:base="https://neerajgangwar.com/blog/2013/face-recognition/"><![CDATA[<p>
   This post is not going to be about compressive sensing or sparse representation. I have
   been trying to find a field where I can use either of these approaches. I read that sparse
   representation can be used in face recognition. Well, I am still not sure. I am working on
   its validity. In the meantime, I tried to implement basic face recognition system.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;
-  I read &lt;a href=&quot;http://www.face-rec.org/algorithms/PCA/jcn.pdf&quot; target=&quot;_blank&quot;&gt;Eigenfaces
-  for Recognition&lt;/a&gt;&amp;nbsp;by Matthew Turk and Alex Pentland. It's a very basic face recognition
+<p>
+  I read <a href="http://www.face-rec.org/algorithms/PCA/jcn.pdf" target="_blank">Eigenfaces
+  for Recognition</a>&nbsp;by Matthew Turk and Alex Pentland. It's a very basic face recognition
   approach.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;
+<p>
   There are two modules. First module is to train the system. It takes a set of faces and
   generates the features (called eigenfaces) and weight vectors (or projections). The second
   module is for face matching. It uses these features to calculate the weight vectors for a
   new image and decides the face class for this new face.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Approach&lt;/h4&gt;
-&lt;ol&gt;
-  &lt;li&gt;
+<p><br /></p>
+<h4>Approach</h4>
+<ol>
+  <li>
     Principal Component Analysis (PCA) is used in this approach to reduce the dimensionality of
-    the data. &lt;a href=&quot;http://www.stat.cmu.edu/~cshalizi/490/pca/pca-handout.pdf&quot; target=&quot;_blank&quot;&gt;
-    Here&lt;/a&gt; is a good tutorial on PCA.
-  &lt;/li&gt;
-  &lt;li&gt;
+    the data. <a href="http://www.stat.cmu.edu/~cshalizi/490/pca/pca-handout.pdf" target="_blank">
+    Here</a> is a good tutorial on PCA.
+  </li>
+  <li>
     Suppose we have \(M\) images of size \( N \times N \). These images are reshaped into a
     \( N^2 \times 1 \) vectors \( \Gamma_1, \Gamma_2 \dots \Gamma_M\). Now our aim is to summarize
     them by projecting into a \(M'\) dimensional subspace \( M' \le M \).
-  &lt;/li&gt;
-  &lt;li&gt;
+  </li>
+  <li>
     PCA gives an orthonormal basis for \( M \) dimensional subspace \( \mathbf{u}_k \). This basis
     is named as eigenfaces.
-  &lt;/li&gt;
-  &lt;li&gt;
+  </li>
+  <li>
     Original images are transformed into its eigenfaces components (weights) using
-    $$ \omega_k = &amp;nbsp;\mathbf{u}_k( \Gamma - \Psi) $$ where $$ \Psi = \frac{1}{M} \sum_{n=1}^{M} \; \Gamma_n$$
+    $$ \omega_k = &nbsp;\mathbf{u}_k( \Gamma - \Psi) $$ where $$ \Psi = \frac{1}{M} \sum_{n=1}^{M} \; \Gamma_n$$
     The reason to introduce \( \Psi \) is to make the data zero mean. More details are given in the tutorial
     mentioned above.
-  &lt;/li&gt;
-  &lt;li&gt;
+  </li>
+  <li>
     A face class (or weight vectors) is defined as \( \Omega = [\omega_1, \omega_2 \dots \omega_M] \) for
     each individual face. We generally take average weight of these weight vectors for different images
     of the same face to define a face class.
-  &lt;/li&gt;
-&lt;/ol&gt;
+  </li>
+</ol>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Few original faces&lt;/h4&gt;
-&lt;p&gt;I used 400 images. 10 per person.&lt;/p&gt;
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;img border=&quot;0&quot; src=&quot;http://4.bp.blogspot.com/-qgqly2LpSUM/UrkWmOMu2cI/AAAAAAAAAd4/-_5cGhzalZM/s640/Screenshot+from+2013-12-24+10:36:55.png&quot; height=&quot;416&quot; width=&quot;640&quot; /&gt;
-&lt;/div&gt;
+<p><br /></p>
+<h4>Few original faces</h4>
+<p>I used 400 images. 10 per person.</p>
+<div style="text-align: center;">
+  <img border="0" src="http://4.bp.blogspot.com/-qgqly2LpSUM/UrkWmOMu2cI/AAAAAAAAAd4/-_5cGhzalZM/s640/Screenshot+from+2013-12-24+10:36:55.png" height="416" width="640" />
+</div>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Few Eigenfaces&lt;/h4&gt;
-&lt;p&gt;
+<p><br /></p>
+<h4>Few Eigenfaces</h4>
+<p>
   Actually there are 400 of them since I used 400 images. But I used only 200 corresponding to
   200 largest eigenvalues (sufficient to represent original images with tolerable amount of error).
-&lt;/p&gt;
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;img border=&quot;0&quot; src=&quot;http://4.bp.blogspot.com/-py9JWa3nefE/UrkVtzvYWjI/AAAAAAAAAdw/QKeXDciGiSM/s640/Screenshot+from+2013-12-24+10:32:08.png&quot; height=&quot;417&quot; width=&quot;640&quot; /&gt;
-&lt;/div&gt;
+</p>
+<div style="text-align: center;">
+  <img border="0" src="http://4.bp.blogspot.com/-py9JWa3nefE/UrkVtzvYWjI/AAAAAAAAAdw/QKeXDciGiSM/s640/Screenshot+from+2013-12-24+10:32:08.png" height="417" width="640" />
+</div>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Face Matching&lt;/h4&gt;
-&lt;p&gt;
+<p><br /></p>
+<h4>Face Matching</h4>
+<p>
   It's really simple. We just have to calculate weight vector for the new face and compare with those
   of original images to find out the closest face. This way we find out the face class for a new face.
   An error threshold is also defined to ensure that the new image does belong to a particular face class
   in addition to being closest to it.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Testing&lt;/h4&gt;
-&lt;p&gt;
+<p><br /></p>
+<h4>Testing</h4>
+<p>
   I used first 9 images of each individual face to train the system i.e. 360 images. I gave 10th face as
   input to face matching. See the plot for error (minimum value of error corresponds to closest face class)
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h5&gt;For 10th image of 1st face class&lt;/h5&gt;
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;img border=&quot;0&quot; src=&quot;http://4.bp.blogspot.com/-tZp_KpQkGwY/Urkb6oLchrI/AAAAAAAAAeI/1deNtIUvoKQ/s640/Screenshot+from+2013-12-24+10:58:28.png&quot; height=&quot;499&quot; width=&quot;640&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;It can be seen that height of first bar is minimum.&lt;/p&gt;
+<p><br /></p>
+<h5>For 10th image of 1st face class</h5>
+<div style="text-align: center;">
+  <img border="0" src="http://4.bp.blogspot.com/-tZp_KpQkGwY/Urkb6oLchrI/AAAAAAAAAeI/1deNtIUvoKQ/s640/Screenshot+from+2013-12-24+10:58:28.png" height="499" width="640" />
+</div>
+<p>It can be seen that height of first bar is minimum.</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h5&gt;For 10th image of 8th face class&lt;/h5&gt;
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;img border=&quot;0&quot; src=&quot;http://1.bp.blogspot.com/-vOp4MEcp4IQ/Urkb8pY1TXI/AAAAAAAAAeQ/cvstEQYUBTI/s640/Screenshot+from+2013-12-24+10%253A58%253A41.png&quot; height=&quot;488&quot; width=&quot;640&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Here height of 8th bar is minimum corresponding to minimum error.&lt;/p&gt;
+<p><br /></p>
+<h5>For 10th image of 8th face class</h5>
+<div style="text-align: center;">
+  <img border="0" src="http://1.bp.blogspot.com/-vOp4MEcp4IQ/Urkb8pY1TXI/AAAAAAAAAeQ/cvstEQYUBTI/s640/Screenshot+from+2013-12-24+10%253A58%253A41.png" height="488" width="640" />
+</div>
+<p>Here height of 8th bar is minimum corresponding to minimum error.</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;
-  My code can be found &lt;a href=&quot;https://github.com/neerajgangwar/Face-Recognition&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.
+<p><br /></p>
+<p>
+  My code can be found <a href="https://github.com/neerajgangwar/Face-Recognition" target="_blank">here</a>.
   Code is not structured but it'll give you a basic idea about how to write your own.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;
-  Face database is available &lt;a href=&quot;http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html&quot; target=&quot;_blank&quot;&gt;
-  here&lt;/a&gt;.
-&lt;/p&gt;
+<p>
+  Face database is available <a href="http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html" target="_blank">
+  here</a>.
+</p>
 
-&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</content><author><name>Neeraj Gangwar</name></author><category term="pattern classification" /><category term="face recognition" /><category term="eigenfaces" /><category term="classification" /><category term="computer vision" /><summary type="html">This post is not going to be about compressive sensing or sparse representation. I have been trying to find a field where I can use either of these approaches. I read that sparse representation can be used in face recognition. Well, I am still not sure. I am working on its validity. In the meantime, I tried to implement basic face recognition system.</summary></entry><entry><title type="html">Learning Resources for Compressive Sensing</title><link href="https://neerajgangwar.com/blog/2013/learning-resources/" rel="alternate" type="text/html" title="Learning Resources for Compressive Sensing" /><published>2013-12-02T22:32:00+00:00</published><updated>2013-12-02T22:32:00+00:00</updated><id>https://neerajgangwar.com/blog/2013/learning-resources</id><content type="html" xml:base="https://neerajgangwar.com/blog/2013/learning-resources/">&lt;ul&gt;
-  &lt;li&gt;Rice University CS resources: &lt;a href=&quot;http://dsp.rice.edu/cs&quot;&gt;http://dsp.rice.edu/cs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;A blog by Igor Carron: &lt;a href=&quot;http://nuit-blanche.blogspot.in/&quot;&gt;http://nuit-blanche.blogspot.in/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;A Mathematical Introduction to Compressive Sensing: &lt;a href=&quot;http://www.springer.com/birkhauser/mathematics/book/978-0-8176-4947-0&quot;&gt;http://www.springer.com/birkhauser/mathematics/book/978-0-8176-4947-0&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;An Introduction to Compressive Sensing: &lt;a href=&quot;http://cnx.org/content/col11133/latest&quot;&gt;http://cnx.org/content/col11133/latest&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;And obviously IEEE Xplore site!&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Neeraj Gangwar</name></author><category term="sparse signals" /><category term="resources" /><category term="compressed sensing" /><category term="cs" /><summary type="html">Rice University CS resources: http://dsp.rice.edu/cs A blog by Igor Carron: http://nuit-blanche.blogspot.in/ A Mathematical Introduction to Compressive Sensing: http://www.springer.com/birkhauser/mathematics/book/978-0-8176-4947-0 An Introduction to Compressive Sensing: http://cnx.org/content/col11133/latest And obviously IEEE Xplore site!</summary></entry><entry><title type="html">Transform Coding and Compressive Sensing</title><link href="https://neerajgangwar.com/blog/2013/transform-coding-and-compressive-sensing/" rel="alternate" type="text/html" title="Transform Coding and Compressive Sensing" /><published>2013-12-02T07:19:00+00:00</published><updated>2013-12-02T07:19:00+00:00</updated><id>https://neerajgangwar.com/blog/2013/transform-coding-and-compressive-sensing</id><content type="html" xml:base="https://neerajgangwar.com/blog/2013/transform-coding-and-compressive-sensing/">&lt;p&gt;
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>]]></content><author><name>Neeraj Gangwar</name></author><category term="pattern classification" /><category term="face recognition" /><category term="eigenfaces" /><category term="classification" /><category term="computer vision" /><summary type="html"><![CDATA[This post is not going to be about compressive sensing or sparse representation. I have been trying to find a field where I can use either of these approaches. I read that sparse representation can be used in face recognition. Well, I am still not sure. I am working on its validity. In the meantime, I tried to implement basic face recognition system.]]></summary></entry><entry><title type="html">Learning Resources for Compressive Sensing</title><link href="https://neerajgangwar.com/blog/2013/learning-resources/" rel="alternate" type="text/html" title="Learning Resources for Compressive Sensing" /><published>2013-12-02T22:32:00+00:00</published><updated>2013-12-02T22:32:00+00:00</updated><id>https://neerajgangwar.com/blog/2013/learning-resources</id><content type="html" xml:base="https://neerajgangwar.com/blog/2013/learning-resources/"><![CDATA[<ul>
+  <li>Rice University CS resources: <a href="http://dsp.rice.edu/cs">http://dsp.rice.edu/cs</a></li>
+  <li>A blog by Igor Carron: <a href="http://nuit-blanche.blogspot.in/">http://nuit-blanche.blogspot.in/</a></li>
+  <li>A Mathematical Introduction to Compressive Sensing: <a href="http://www.springer.com/birkhauser/mathematics/book/978-0-8176-4947-0">http://www.springer.com/birkhauser/mathematics/book/978-0-8176-4947-0</a></li>
+  <li>An Introduction to Compressive Sensing: <a href="http://cnx.org/content/col11133/latest">http://cnx.org/content/col11133/latest</a></li>
+  <li>And obviously IEEE Xplore site!</li>
+</ul>]]></content><author><name>Neeraj Gangwar</name></author><category term="sparse signals" /><category term="resources" /><category term="compressed sensing" /><category term="cs" /><summary type="html"><![CDATA[Rice University CS resources: http://dsp.rice.edu/cs A blog by Igor Carron: http://nuit-blanche.blogspot.in/ A Mathematical Introduction to Compressive Sensing: http://www.springer.com/birkhauser/mathematics/book/978-0-8176-4947-0 An Introduction to Compressive Sensing: http://cnx.org/content/col11133/latest And obviously IEEE Xplore site!]]></summary></entry><entry><title type="html">Transform Coding and Compressive Sensing</title><link href="https://neerajgangwar.com/blog/2013/transform-coding-and-compressive-sensing/" rel="alternate" type="text/html" title="Transform Coding and Compressive Sensing" /><published>2013-12-02T07:19:00+00:00</published><updated>2013-12-02T07:19:00+00:00</updated><id>https://neerajgangwar.com/blog/2013/transform-coding-and-compressive-sensing</id><content type="html" xml:base="https://neerajgangwar.com/blog/2013/transform-coding-and-compressive-sensing/"><![CDATA[<p>
   It is now clear that we want to reduce the number of samples to represent some information.
   In this article, we'll talk about a method called transform coding which is used for the
   same purpose.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;
+<p>
   A signal \( \mathbf{f} \in \mathbb{R}^N \) can be represented in terms of \( N \times 1 \) basis
   vectors \( \left\lbrace \psi_i\right\rbrace _{i=1}^N\) as $$\mathbf{f} = \sum_{i=1}^{N}\; x_i\psi_i = \mathbf{\Psi x} $$.
-&lt;/p&gt;
+</p>
 
-&lt;blockquote&gt;
+<blockquote>
   A signal vector \( \mathbf{x} \in \mathbb{R}^{N \times 1} \) will be referred to as compressible
   if the magnitudes of its elements decay at a power law rate if sorted in decreasing order.
-&lt;/blockquote&gt;
+</blockquote>
 
-&lt;blockquote&gt;
+<blockquote>
   A signal \(\mathbf{f}\) is called \(K\)-sparse in \(\psi\) domain if only \(K\) out of \(N\)
   entries in coefficient vector \(\mathbf{x}\) are nonzero.
-&lt;/blockquote&gt;
+</blockquote>
 
-&lt;h4&gt;Transform Coding&lt;/h4&gt;
-&lt;p&gt;
+<h4>Transform Coding</h4>
+<p>
   Transform coding can be used to reduce number of samples to represent a signal if given signal is
   compressible or sparse.
   In transform coding, we first calculate coefficient vector \( \mathbf{x} \) using
   $$\mathbf{x} = \Psi^T\mathbf{f} $$Then we keep only \( K \) large entries and discard other
   \( N-K \) entries.
-&lt;/p&gt;
+</p>
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;104&quot; src=&quot;http://4.bp.blogspot.com/-eQTBATEzGJU/UpyZY4YE81I/AAAAAAAAAUU/P6BWqW5BYWw/s640/transform_coding.JPG&quot; width=&quot;640&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center;&quot;&gt;Fig 1: Block diagram of transform coding&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><img border="0" height="104" src="http://4.bp.blogspot.com/-eQTBATEzGJU/UpyZY4YE81I/AAAAAAAAAUU/P6BWqW5BYWw/s640/transform_coding.JPG" width="640" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">Fig 1: Block diagram of transform coding</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Inefficiencies of Transform Coding&lt;/h4&gt;
-&lt;ol&gt;
-    &lt;li&gt;The initial number of samples \(N\) maybe large even if \(K\) is small.&lt;/li&gt;
-    &lt;li&gt;All \(N\) coefficients have to be calculated even though \(N-K\) will be discarded.&lt;/li&gt;
-    &lt;li&gt;Locations of \(K\) coefficients have to be encoded which is an overhead.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
+<p><br /></p>
+<h4>Inefficiencies of Transform Coding</h4>
+<ol>
+    <li>The initial number of samples \(N\) maybe large even if \(K\) is small.</li>
+    <li>All \(N\) coefficients have to be calculated even though \(N-K\) will be discarded.</li>
+    <li>Locations of \(K\) coefficients have to be encoded which is an overhead.</li>
+</ol>
+<p>
   At the receiver end, we have to decompress the signal. We use the assumption that
   coefficients for which locations are not encoded are zero.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Is there a way to bypass compression and decompression steps?&lt;/h4&gt;
-&lt;p&gt;Yes. Compressive Sensing !&lt;/p&gt;
+<p><br /></p>
+<h4>Is there a way to bypass compression and decompression steps?</h4>
+<p>Yes. Compressive Sensing !</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Compressive Sensing&lt;/h4&gt;
-&lt;p&gt;
+<p><br /></p>
+<h4>Compressive Sensing</h4>
+<p>
   The fundamental idea behind compressive sensing is that we want to acquire data in
   compressed form rather than first sampling the signal at a high rate and then compressing
   the sampled data.
-&lt;/p&gt;
+</p>
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;130&quot; src=&quot;http://3.bp.blogspot.com/-Vx-2Dh4ItE8/UpyZo4Ktp9I/AAAAAAAAAUc/Nnn7fRVUnKc/s640/compressive_sensing.JPG&quot; width=&quot;640&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center;&quot;&gt;Fig 2: Block diagram of compressive sensing&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><img border="0" height="130" src="http://3.bp.blogspot.com/-Vx-2Dh4ItE8/UpyZo4Ktp9I/AAAAAAAAAUc/Nnn7fRVUnKc/s640/compressive_sensing.JPG" width="640" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">Fig 2: Block diagram of compressive sensing</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;p&gt;
+<p>
   This system can be represented as a matrix equation: $$ \mathbf{y} = \Theta \mathbf{f} $$
   If \( \mathbf{f} \) is \(K\)-sparse in \(\Psi\) domain then above equation can be written
   as $$ \mathbf{y} = \Theta \Psi \mathbf{x} = \mathbf{Ax} $$
-  Where \( \mathbf{A} \) is \( M \times N \) matrix and \( M &amp;lt;&amp;lt; N \).
-  &lt;br /&gt;
+  Where \( \mathbf{A} \) is \( M \times N \) matrix and \( M &lt;&lt; N \).
+  <br />
   If we observe above equation, we see that it represents an underdetermined system. So for a
   given \( \mathbf{y} \), there exist many \( \mathbf{x}\)'s which will satisfy this equation.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;How do we solve this equation?&lt;/h4&gt;
-&lt;p&gt;
+<p><br /></p>
+<h4>How do we solve this equation?</h4>
+<p>
   We've got a problem now. We acquired the data in compressed form. But we should be able to
   reconstruct the original signal with tolerable amount of error. We assumed earlier that signal
   is sparse in \( \Psi \) domain. We're gonna use this condition to solve the system. All we have
   to do is that find a unique \( K \)-sparse signal that satisfies this system.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;How do we ensure all these conditions?&lt;/h4&gt;
-&lt;p&gt;
+<p><br /></p>
+<h4>How do we ensure all these conditions?</h4>
+<p>
   I said a lot about when we can reconstruct the signal from the acquired data. Seems like too many
   conditions, right? But good news, it all depends on measurement matrix, i.e. \( \mathbf{A} \).
   If \( \mathbf{A} \) satisfies two properties, there is high probability that original signal can be
   reconstructed exactly.
-&lt;/p&gt;
-&lt;ol&gt;
-    &lt;li&gt;Mutual Incoherence Property&lt;/li&gt;
-    &lt;li&gt;Restricted Isometry Property&lt;/li&gt;
-&lt;/ol&gt;
+</p>
+<ol>
+    <li>Mutual Incoherence Property</li>
+    <li>Restricted Isometry Property</li>
+</ol>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Mutual Incoherence Property&lt;/h4&gt;
-&lt;blockquote&gt;
+<p><br /></p>
+<h4>Mutual Incoherence Property</h4>
+<blockquote>
   Coherence between sensing matrix \( \Phi \) and representation matrix \( \Psi \) can be defined as
-  $$ \mu( \Phi, \Psi ) =&amp;nbsp;\sqrt{n}. \max_{k, j} |\left\langle \varphi_k, \psi_j\right\rangle | $$
-&lt;/blockquote&gt;
-&lt;p&gt;
+  $$ \mu( \Phi, \Psi ) =&nbsp;\sqrt{n}. \max_{k, j} |\left\langle \varphi_k, \psi_j\right\rangle | $$
+</blockquote>
+<p>
   Mutual incoherence property says that coherence between \( \Phi \) and \( \Psi \) should be as low
   as possible. It can be seen from theorem given below.
-&lt;/p&gt;
-&lt;blockquote&gt;
+</p>
+<blockquote>
   Fix \(\mathbf{f} \in \mathbb{R}^N\) and suppose that the coefficient equence \(\mathbf{x}\) of
   \(\mathbf{f}\) in the basis \(\Psi\) is \(K\) sparse. Select \(m\) measurements in the \(\Phi\)
   domain uniformly at random. Then if $$ m \geq C.\mu^2(\Phi, \Psi).K.\log N $$ for some positive
   constant \(C\), the signal can be reconstructed exactly with overwhelming probability.
-&lt;/blockquote&gt;
-&lt;p&gt;It can easily be seen that less samples will be required if coherence is less.&lt;/p&gt;
+</blockquote>
+<p>It can easily be seen that less samples will be required if coherence is less.</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4&gt;Restricted Isometry Property&lt;/h4&gt;
-&lt;blockquote&gt;
+<p><br /></p>
+<h4>Restricted Isometry Property</h4>
+<blockquote>
   For each integer \(K = 1, 2, \dots\), define the isometry constant \(\delta_K\) of a matrix
   \(\mathbf{A}\) as the smallest number such that
   $$ \label{ripDef} (1 - \delta_K) ||\mathbf{x}||_{l_2}^2 \leq ||\mathbf{Ax}||_{l_2}^2 \leq (1 + \delta_K) ||\mathbf{x}||_{l_2}^2 $$
   holds for all \(K\)-sparse vectors \(\mathbf{x}\). We will loosely say that a matrix \(\mathbf{A}\)
   obeys the RIP of order \(K\) if \(\delta_K\) is not too close to one.
-&lt;/blockquote&gt;
-&lt;p&gt;
+</blockquote>
+<p>
   The implication of above definition is that we don't want \(l_2\) norm of a signal to change much
   in dimensionality reduction process.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;
+<p>
   An equivalent description of the RIP is to say that all subsets of \(K\) columns taken from
   \(\mathbf{A}\) are nearly orthogonal. This is necessary to ensure the uniqueness of \(K\)-sparse
   solution.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;
+<p><br /></p>
+<p>
   There are many reconstruction algorithms available to reconstruct the signal with tolerable
   amount of error. I'll discuss them later.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;
-  I mostly referred to &lt;a href=&quot;http://authors.library.caltech.edu/10092/1/CANieeespm08.pdf&quot; target=&quot;_blank&quot;&gt;
-  this paper&lt;/a&gt; for this blog post.
-&lt;/p&gt;
+<p><br /></p>
+<p>
+  I mostly referred to <a href="http://authors.library.caltech.edu/10092/1/CANieeespm08.pdf" target="_blank">
+  this paper</a> for this blog post.
+</p>
 
-&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</content><author><name>Neeraj Gangwar</name></author><category term="sampling" /><category term="transform coding" /><category term="compressed sensing" /><category term="compressive sensing" /><summary type="html">It is now clear that we want to reduce the number of samples to represent some information. In this article, we'll talk about a method called transform coding which is used for the same purpose.</summary></entry><entry><title type="html">A Brief Introduction to Compressive Sensing</title><link href="https://neerajgangwar.com/blog/2013/a-brief-introduction/" rel="alternate" type="text/html" title="A Brief Introduction to Compressive Sensing" /><published>2013-10-14T10:05:00+00:00</published><updated>2013-10-14T10:05:00+00:00</updated><id>https://neerajgangwar.com/blog/2013/a-brief-introduction</id><content type="html" xml:base="https://neerajgangwar.com/blog/2013/a-brief-introduction/">&lt;h3&gt;Problem of Accelerating Data Deluge&lt;/h3&gt;
-&lt;p&gt;Why should we even consider this problem? Below are some reasons.&lt;/p&gt;
-&lt;p&gt;
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>]]></content><author><name>Neeraj Gangwar</name></author><category term="sampling" /><category term="transform coding" /><category term="compressed sensing" /><category term="compressive sensing" /><summary type="html"><![CDATA[It is now clear that we want to reduce the number of samples to represent some information. In this article, we'll talk about a method called transform coding which is used for the same purpose.]]></summary></entry><entry><title type="html">A Brief Introduction to Compressive Sensing</title><link href="https://neerajgangwar.com/blog/2013/a-brief-introduction/" rel="alternate" type="text/html" title="A Brief Introduction to Compressive Sensing" /><published>2013-10-14T10:05:00+00:00</published><updated>2013-10-14T10:05:00+00:00</updated><id>https://neerajgangwar.com/blog/2013/a-brief-introduction</id><content type="html" xml:base="https://neerajgangwar.com/blog/2013/a-brief-introduction/"><![CDATA[<h3>Problem of Accelerating Data Deluge</h3>
+<p>Why should we even consider this problem? Below are some reasons.</p>
+<p>
   From storage point of view, we are generating a huge amount of data. As a result,
   we are running out of storage. In 2007, we generated more data than the total
   storage available. So now, we have no other option but to simply throw away some
   data.
-&lt;/p&gt;
-&lt;p&gt;
+</p>
+<p>
   From sampling point of view, sampling rate calculated using Shannon-Nyquist theorem
   might be too high in many cases. It might be very expensive or simply impossible to
   design a sampling device for such rates.
-&lt;/p&gt;
-&lt;p&gt;
+</p>
+<p>
   From communication point of view, increase in data generation rate is much higher than
   increase in transmission rate.
-&lt;/p&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3&gt;Is there a solution?&lt;/h3&gt;
-&lt;p&gt;
+</p>
+<p><br /></p>
+<h3>Is there a solution?</h3>
+<p>
   Yes. Compressive Sensing ! The main idea is to acquire far fewer samples of a signal in
   a signal independent fashion and then reconstruct the signal from these incomplete measurements.
-&lt;/p&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3&gt;What is Compressive Sensing?&lt;/h3&gt;
-&lt;p&gt;
-  As stated in an&amp;nbsp;&lt;a href=&quot;http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&amp;amp;arnumber=
-  4472240&amp;amp;queryText%3Dan+introduction+to+compressive+sampling&quot; target=&quot;_blank&quot;&gt;article&lt;/a&gt;
+</p>
+<p><br /></p>
+<h3>What is Compressive Sensing?</h3>
+<p>
+  As stated in an&nbsp;<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&amp;arnumber=
+  4472240&amp;queryText%3Dan+introduction+to+compressive+sampling" target="_blank">article</a>
   written by Emmanuel J. Candes and Michael B. Wakin, Compressive sensing (CS) is a sensing/sampling
   paradigm that goes against the common knowledge in data acquisition. Conventional approaches
   to sampling follow Shannon-Nyquist theorem. Using CS theory, certain signals can be
   recovered from far fewer samples than traditional methods use.
-&lt;/p&gt;</content><author><name>Neeraj Gangwar</name></author><category term="sparse signals" /><category term="sampling" /><category term="compressed sensing" /><category term="compressive sensing" /><category term="cs" /><summary type="html">Problem of Accelerating Data Deluge Why should we even consider this problem? Below are some reasons. From storage point of view, we are generating a huge amount of data. As a result, we are running out of storage. In 2007, we generated more data than the total storage available. So now, we have no other option but to simply throw away some data. From sampling point of view, sampling rate calculated using Shannon-Nyquist theorem might be too high in many cases. It might be very expensive or simply impossible to design a sampling device for such rates. From communication point of view, increase in data generation rate is much higher than increase in transmission rate. Is there a solution? Yes. Compressive Sensing ! The main idea is to acquire far fewer samples of a signal in a signal independent fashion and then reconstruct the signal from these incomplete measurements. What is Compressive Sensing? As stated in an&amp;nbsp;article written by Emmanuel J. Candes and Michael B. Wakin, Compressive sensing (CS) is a sensing/sampling paradigm that goes against the common knowledge in data acquisition. Conventional approaches to sampling follow Shannon-Nyquist theorem. Using CS theory, certain signals can be recovered from far fewer samples than traditional methods use.</summary></entry></feed>
+</p>]]></content><author><name>Neeraj Gangwar</name></author><category term="sparse signals" /><category term="sampling" /><category term="compressed sensing" /><category term="compressive sensing" /><category term="cs" /><summary type="html"><![CDATA[Problem of Accelerating Data Deluge Why should we even consider this problem? Below are some reasons. From storage point of view, we are generating a huge amount of data. As a result, we are running out of storage. In 2007, we generated more data than the total storage available. So now, we have no other option but to simply throw away some data. From sampling point of view, sampling rate calculated using Shannon-Nyquist theorem might be too high in many cases. It might be very expensive or simply impossible to design a sampling device for such rates. From communication point of view, increase in data generation rate is much higher than increase in transmission rate. Is there a solution? Yes. Compressive Sensing ! The main idea is to acquire far fewer samples of a signal in a signal independent fashion and then reconstruct the signal from these incomplete measurements. What is Compressive Sensing? As stated in an&nbsp;article written by Emmanuel J. Candes and Michael B. Wakin, Compressive sensing (CS) is a sensing/sampling paradigm that goes against the common knowledge in data acquisition. Conventional approaches to sampling follow Shannon-Nyquist theorem. Using CS theory, certain signals can be recovered from far fewer samples than traditional methods use.]]></summary></entry></feed>
