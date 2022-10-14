@@ -124,7 +124,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
-  - _pages/publications.md
   - _pages/teaching.md
   - _pages/projects.md
 keep_files:
