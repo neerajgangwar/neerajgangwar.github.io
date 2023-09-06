@@ -35,7 +35,7 @@ layout: compress
               {% endif %}
             {% endfor %}
           {% endif %}
-          
+
           {% if forloop.length == 1 %}
             {% if author_is_self %}
               <em>{{author.last}}, {{author.first}}</em>
@@ -75,7 +75,7 @@ layout: compress
         <em>In {{entry.booktitle}}</em>
       {% endif %}
       {% if entry.year %}
-        {{entry.year}}
+        ({{entry.year}})
       {% endif %}
       </div>
     {% endif %}
