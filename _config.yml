@@ -50,12 +50,12 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 
 github_username: neerajgangwar # your GitHub user name
 gitlab_username: # your GitLab user name
-twitter_username: neeraj_gangwar # your Twitter handle
+twitter_username: # your Twitter handle
 linkedin_username: gangwarneeraj # your LinkedIn user name
 scholar_userid: # your Google Scholar ID
 orcid_id: # your ORCID ID
 medium_username: # your Medium username
-quora_username: Neeraj-Gangwar # your Quora username
+quora_username: # your Quora username
 publons_id: # your ID on Publons
 research_gate_profile: # your profile on ResearchGate
 blogger_url: # your blogger URL
@@ -92,10 +92,10 @@ collections:
   news:
     defaults:
       layout: post
-    output: true
+    output: false
     permalink: /news/:path/
   projects:
-    output: true
+    output: false
     permalink: /projects/:path/
 
 news_limit: 15
