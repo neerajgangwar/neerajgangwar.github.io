@@ -38,29 +38,29 @@ layout: compress
 
           {% if forloop.length == 1 %}
             {% if author_is_self %}
-              <em>{{author.last}}, {{author.first}}</em>
+              <em>{{author.first}} {{author.last}}</em>
             {% else %}
-              {{author.last}}, {{author.first}}
+              {{author.first}} {{author.last}}
             {% endif %}
           {% else %}
             {% unless forloop.last %}
               {% if author_is_self %}
-                <em>{{author.last}}, {{author.first}}</em>,
+                <em>{{author.first}} {{author.last}}</em>,
               {% else %}
                 {% if coauthor_url %}
-                  <a href="{{coauthor_url}}" target="_blank">{{author.last}}, {{author.first}}</a>,
+                  <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a>,
                 {% else %}
-                  {{author.last}}, {{author.first}},
+                  {{author.first}} {{author.last}},
                 {% endif %}
               {% endif %}
             {% else %}
               {% if author_is_self %}
-                and <em>{{author.last}}, {{author.first}}</em>
+                and <em>{{author.first}} {{author.last}}</em>
               {% else %}
                 {% if coauthor_url %}
-                  and <a href="{{coauthor_url}}" target="_blank">{{author.last}}, {{author.first}}</a>
+                  and <a href="{{coauthor_url}}" target="_blank">{{author.first}} {{author.last}}</a>
                 {% else %}
-                  and {{author.last}}, {{author.first}}
+                  and {{author.first}} {{author.last}}
                 {% endif %}
               {% endif %}
             {% endunless %}
@@ -68,16 +68,23 @@ layout: compress
         {% endfor %}
       </div>
 
+
       <div class="periodical">
-      {% if entry.type == "article" %}
-        <em>{{entry.journal}}</em>
-      {% elsif entry.type == "inproceedings" %}
+        {% if entry.type == "article" %}
+        {{entry.journalprefix}}<em>{{entry.journal}}</em>
+        {% elsif entry.type == "inproceedings" %}
         <em>In {{entry.booktitle}}</em>
-      {% endif %}
-      {% if entry.year %}
-        ({{entry.year}})
-      {% endif %}
+        {% endif %}
+        {% if entry.year %}
+        <em>({{entry.year}})</em>
+        {% endif %}
       </div>
+
+      {% if entry.award %}
+      <div class="award">
+        <i class="fas fa-award"></i> {{entry.award}}
+      </div>
+      {% endif %}
     {% endif %}
 
     <div class="links">

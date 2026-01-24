@@ -1,18 +1,16 @@
-"Adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"Kani":
+  - firstname: ["Nickvash"]
+    url: https://nickvashkani.com/
 
-"Podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"Bhat":
+  - firstname: ["Suma", "Suma P"]
+    url: https://florabhat.github.io/sumabhat.github.io/
 
-"Rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"Rahmanian":
+  - firstname: ["Holakou"]
+    url: https://holakou.com/
 
-"Bach": 
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+"Shavlovsky":
+  - firstname: ["Michael"]
+    url: https://scholar.google.com/citations?user=MurGugIAAAAJ&hl=en
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
